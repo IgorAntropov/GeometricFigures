@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Model1;
+using Model;
+
 namespace UsingForm
 {
-    public partial class Form1 : Form
+    public partial class UserForm : Form
     {
-        public Form1()
+        public UserForm()
         {
             InitializeComponent();
         }
@@ -21,35 +22,35 @@ namespace UsingForm
         {
             label2.Visible = false;
             label3.Visible = false;
-            textBox1.Visible = false;
-            textBox2.Visible = false;
-            button4.Visible = false;
-            button5.Visible = false;
-            button6.Visible = false;
+            Variable1.Visible = false;
+            Variable2.Visible = false;
+            OkCircle.Visible = false;
+            OkRectangle.Visible = false;
+            OkTriangle.Visible = false;
             //
-            textBox1.Clear();
-            textBox2.Clear();
+            Variable1.Clear();
+            Variable2.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             label2.Text = ("R");
             label1.Text = "Для нахождения площади круга введите радиус";
-            pictureBox1.Load("C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
+            PictureBox.Load("C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
             //
             label2.Visible = false;
             label3.Visible = false;
-            textBox1.Visible = false;
-            textBox2.Visible = false;
-            button5.Visible = false;
-            button6.Visible = false;
+            Variable1.Visible = false;
+            Variable2.Visible = false;
+            OkRectangle.Visible = false;
+            OkTriangle.Visible = false;
             //
-            textBox1.Visible = true;
+            Variable1.Visible = true;
             label2.Visible = true;
-            button4.Visible = true;
+            OkCircle.Visible = true;
             //
-            textBox1.Clear();
-            textBox2.Clear();
+            Variable1.Clear();
+            Variable2.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -57,23 +58,23 @@ namespace UsingForm
             label2.Text = ("А");
             label3.Text = ("В");
             label1.Text = "Для нахождения площади прямоугольника введите длины его смежных сторон";
-            pictureBox1.Load("C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
+            PictureBox.Load("C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
             //
             label2.Visible = false;
             label3.Visible = false;
-            textBox1.Visible = false;
-            textBox2.Visible = false;
-            button4.Visible = false;
-            button6.Visible = false;
+            Variable1.Visible = false;
+            Variable2.Visible = false;
+            OkCircle.Visible = false;
+            OkTriangle.Visible = false;
             //
-            textBox1.Visible = true;
-            textBox2.Visible = true;
+            Variable1.Visible = true;
+            Variable2.Visible = true;
             label2.Visible = true;
             label3.Visible = true;
-            button5.Visible = true;
+            OkRectangle.Visible = true;
             //
-            textBox1.Clear();
-            textBox2.Clear();
+            Variable1.Clear();
+            Variable2.Clear();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -81,28 +82,28 @@ namespace UsingForm
             label2.Text = ("А");
             label3.Text = ("H");
             label1.Text = "Для нахождения площади треугольника введите длину и высоту";
-            pictureBox1.Load("C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
+            PictureBox.Load("C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
             //
             label2.Visible = false;
             label3.Visible = false;
-            textBox1.Visible = false;
-            textBox2.Visible = false;
-            button4.Visible = false;
-            button5.Visible = false;
+            Variable1.Visible = false;
+            Variable2.Visible = false;
+            OkCircle.Visible = false;
+            OkRectangle.Visible = false;
             //
-            textBox1.Visible = true;
-            textBox2.Visible = true;
+            Variable1.Visible = true;
+            Variable2.Visible = true;
             label2.Visible = true;
             label3.Visible = true;
-            button6.Visible = true;
+            OkTriangle.Visible = true;
             //
-            textBox1.Clear();
-            textBox2.Clear();
+            Variable1.Clear();
+            Variable2.Clear();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == string.Empty)
+            if (Variable1.Text == string.Empty)
             {
                 {
                     MessageBox.Show(
@@ -114,7 +115,7 @@ namespace UsingForm
                 return;
             }
 
-            if (textBox2.Text == string.Empty)
+            if (Variable2.Text == string.Empty)
             {
                 {
                     MessageBox.Show(
@@ -126,8 +127,8 @@ namespace UsingForm
                 return;
             }
 
-            var a = double.Parse(textBox1.Text);
-            var b = double.Parse(textBox2.Text);
+            var a = double.Parse(Variable1.Text);
+            var b = double.Parse(Variable2.Text);
 
             if (a < 0 || a == 0)
             {
@@ -153,15 +154,15 @@ namespace UsingForm
                 return;
             }
 
-            Model1.treClass tre = new treClass(a, b);
+            Model.Triangle triangle = new Triangle(a, b);
 
-            double vol = tre.vozrat();
+            double vol = triangle.Calculate();
             label1.Text = "Площадь треугольника по введенным данным равна " + vol.ToString("F");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == string.Empty)
+            if (Variable1.Text == string.Empty)
             {
                 {
                     MessageBox.Show(
@@ -173,7 +174,7 @@ namespace UsingForm
                 return;
             }
 
-            if (textBox2.Text == string.Empty)
+            if (Variable2.Text == string.Empty)
             {
                 {
                     MessageBox.Show(
@@ -186,8 +187,8 @@ namespace UsingForm
                 return;
             }
 
-            var a = double.Parse(textBox1.Text);
-            var b = double.Parse(textBox2.Text);
+            var a = double.Parse(Variable1.Text);
+            var b = double.Parse(Variable2.Text);
 
             if (a < 0 || a == 0)
             {
@@ -213,15 +214,15 @@ namespace UsingForm
                 return;
             }
 
-            pryaClass prya = new pryaClass(a, b);
+            Model.Rectangle rectangle = new Model.Rectangle(a, b);
 
-            double vol = prya.vozrat();
+            double vol = rectangle.Calculate();
             label1.Text = "Площадь прямоугольника по введенным данным равна " + vol.ToString("F");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == string.Empty)
+            if (Variable1.Text == string.Empty)
             {
 
                 {
@@ -234,7 +235,7 @@ namespace UsingForm
                 return;
             }
 
-            var r = double.Parse(textBox1.Text);
+            var r = double.Parse(Variable1.Text);
 
             if (r < 0 || r == 0)
             {
@@ -248,9 +249,9 @@ namespace UsingForm
                 return;
             }
 
-            krugClass krug = new krugClass(r);
+            Circle circle = new Circle(r);
 
-            double vol = krug.vozrat();
+            double vol = circle.Calculate();
             label1.Text = "Площадь круга по введенным данным равна " + vol.ToString("F");
         }
 
@@ -265,7 +266,7 @@ namespace UsingForm
 
                     }
                     else
-                        if (textBox1.Text.Contains(","))
+                        if (Variable1.Text.Contains(","))
                     {
                         e.Handled = true;
                     }
@@ -288,7 +289,7 @@ namespace UsingForm
 
                     }
                     else
-                        if (textBox2.Text.Contains(","))
+                        if (Variable2.Text.Contains(","))
                     {
                         e.Handled = true;
                     }

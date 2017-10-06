@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model1\Model.csproj", "{8993EE24-B3B4-4559-8EBE-AC2884582FF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserForm", "UsingForm\UserForm.csproj", "{2679F624-D74F-42E0-B660-3FDFE47EA2C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "UsingForm\Interface.csproj", "{2679F624-D74F-42E0-B660-3FDFE47EA2C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

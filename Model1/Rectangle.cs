@@ -12,7 +12,7 @@ namespace Model
     public class Rectangle : Ifigure
     {
         /// <summary>
-        /// Длина прямоугольника..
+        /// Длина прямоугольника.
         /// </summary>
         private double _length;
         /// <summary>

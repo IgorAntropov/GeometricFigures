@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
@@ -35,7 +31,7 @@ namespace Model
         /// <returns></returns>
         public double Calculate()
         {
-            return  Math.PI * (_radius * _radius);
+            return Math.PI*(_radius*_radius);
         }
     }
 }

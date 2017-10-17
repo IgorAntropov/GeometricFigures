@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
@@ -15,6 +11,7 @@ namespace Model
         /// Длина треугольника.
         /// </summary>
         private double _length;
+
         /// <summary>
         /// Высота треугольника.
         /// </summary>
@@ -45,7 +42,7 @@ namespace Model
         /// <returns></returns>
         public double Calculate()
         {
-            return (0.5 * _length) * _height;
+            return (0.5*_length)*_height;
         }
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
@@ -15,6 +11,7 @@ namespace Model
         /// Длина прямоугольника.
         /// </summary>
         private double _length;
+
         /// <summary>
         /// Ширина прямоугольника.
         /// </summary>
@@ -45,7 +42,7 @@ namespace Model
         /// <returns></returns>
         public double Calculate()
         {
-            return _length * _width;
+            return _length*_width;
         }
     }
 }

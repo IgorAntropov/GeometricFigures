@@ -7,3 +7,7 @@ C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model\UsingFo
 C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model\UsingForm\obj\Debug\UsingForm.UserForm.resources
 C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model\UsingForm\obj\Debug\UsingForm.Properties.Resources.resources
 C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model\UsingForm\obj\Debug\Interface.csproj.GenerateResource.Cache
+C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model\UsingForm\bin\Debug\Model1.dll
+C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model\UsingForm\bin\Debug\Model1.pdb
+C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model\UsingForm\obj\Debug\UsingForm.MainForm.resources
+C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model\UsingForm\obj\Debug\UsingForm.ChangeForm.resources

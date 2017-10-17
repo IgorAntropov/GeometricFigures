@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Model;
 
 namespace UsingForm
 {
     public partial class ChangeForm : Form
     {
-        string lb11;
+        private string _lb11;
         public double cl { set; get; }
         public double rr { set; get; }
         public double aa { set; get; }
@@ -26,24 +18,24 @@ namespace UsingForm
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string lb1 = label1.Text;
-            lb11 = lb1;
+            var lb1 = label1.Text;
+            _lb11 = lb1;
             if (textBox1.Text != string.Empty && textBox2.Text != string.Empty)
             {
                 SaveChange.Enabled = true;
             }
-             //circle
-             if (lb1 == "круг")
+            //circle
+            if (lb1 == "круг")
             {
                 if (textBox1.Text == string.Empty)
                 {
 
                     {
                         MessageBox.Show(
-                          "Задайте пожалуйста радиус.",
-                          "Сообщение",
-                          MessageBoxButtons.OK,
-                          MessageBoxIcon.Information);
+                            @"Задайте пожалуйста радиус.",
+                            @"Сообщение",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
                     }
                     return;
                 }
@@ -54,15 +46,15 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Радиус равен или меньше 0",
-                            "Ошибка",
+                            @"Радиус равен или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
                     return;
                 }
-            cl=Math.PI * (r * r);
-            label2.Text = cl.ToString("F");
+                cl = Math.PI*(r*r);
+                label2.Text = cl.ToString("F");
             }
 
             //rectangle
@@ -72,8 +64,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Пожалуйста введите длину стороны А.",
-                            "Сообщение",
+                            @"Пожалуйста введите длину стороны А.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -84,8 +76,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Пожалуйста введите длину стороны B.",
-                            "Сообщение",
+                            @"Пожалуйста введите длину стороны B.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -101,8 +93,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Длина стороны А равна или меньше 0",
-                            "Ошибка",
+                            @"Длина стороны А равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
@@ -113,14 +105,14 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Длина стороны B равна или меньше 0",
-                            "Ошибка",
+                            @"Длина стороны B равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
                     return;
                 }
-                cl = a * b;
+                cl = a*b;
                 label2.Text = cl.ToString("F");
             }
 
@@ -131,8 +123,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Задайте пожалуйста длину треугольника.",
-                            "Сообщение",
+                            @"Задайте пожалуйста длину треугольника.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -143,8 +135,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Задайте пожалуйста высоту треугольника.",
-                            "Сообщение",
+                            @"Задайте пожалуйста высоту треугольника.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -159,8 +151,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Длина  равна или меньше 0",
-                            "Ошибка",
+                            @"Длина  равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
@@ -171,19 +163,16 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Высота треугольника равна или меньше 0",
-                            "Ошибка",
+                            @"Высота треугольника равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
                     return;
                 }
-                cl = (0.5 * a) * b;
+                cl = (0.5*a)*b;
                 label2.Text = cl.ToString("F");
             }
-                
-
-
         }
 
         private void ChangeForm_Load(object sender, EventArgs e)
@@ -195,14 +184,12 @@ namespace UsingForm
         {
             if (!(Char.IsDigit(e.KeyChar)))
             {
-                if (e.KeyChar == ',' || e.KeyChar == (char)Keys.Back)
+                if (e.KeyChar == ',' || e.KeyChar == (char) Keys.Back)
                 {
-                    if (e.KeyChar == (char)Keys.Back)
+                    if (e.KeyChar == (char) Keys.Back)
                     {
-
                     }
-                    else
-                        if (textBox1.Text.Contains(","))
+                    else if (textBox1.Text.Contains(","))
                     {
                         e.Handled = true;
                     }
@@ -218,14 +205,12 @@ namespace UsingForm
         {
             if (!(Char.IsDigit(e.KeyChar)))
             {
-                if (e.KeyChar == ',' || e.KeyChar == (char)Keys.Back)
+                if (e.KeyChar == ',' || e.KeyChar == (char) Keys.Back)
                 {
-                    if (e.KeyChar == (char)Keys.Back)
+                    if (e.KeyChar == (char) Keys.Back)
                     {
-
                     }
-                    else
-                        if (textBox2.Text.Contains(","))
+                    else if (textBox2.Text.Contains(","))
                     {
                         e.Handled = true;
                     }
@@ -239,21 +224,21 @@ namespace UsingForm
 
         private void SaveChange_Click(object sender, EventArgs e)
         {
-            MainForm main = this.Owner as MainForm;
+            var main = this.Owner as MainForm;
             if (main != null)
             {
-                if (lb11 == "круг")
+                if (_lb11 == "круг")
                 {
                     main.dataGridView1.CurrentRow.Cells[1].Value = cl;
                     main.dataGridView1.CurrentRow.Cells[2].Value = rr;
                 }
-                if (lb11 == "прямоугольник")
+                if (_lb11 == "прямоугольник")
                 {
                     main.dataGridView1.CurrentRow.Cells[1].Value = cl;
                     main.dataGridView1.CurrentRow.Cells[2].Value = aa;
                     main.dataGridView1.CurrentRow.Cells[3].Value = bb;
                 }
-                if (lb11 == "треугольник")
+                if (_lb11 == "треугольник")
                 {
                     main.dataGridView1.CurrentRow.Cells[1].Value = cl;
                     main.dataGridView1.CurrentRow.Cells[2].Value = aa;

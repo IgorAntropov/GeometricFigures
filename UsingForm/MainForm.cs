@@ -359,6 +359,7 @@ namespace UsingForm
         {
             var formadd = new ChangeForm();
             formadd.Owner = this;
+            
             var fg = dataGridView1[0, dataGridView1.CurrentRow.Index].Value.ToString();
             var sq = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
             var vr1 = dataGridView1[2, dataGridView1.CurrentRow.Index].Value.ToString();

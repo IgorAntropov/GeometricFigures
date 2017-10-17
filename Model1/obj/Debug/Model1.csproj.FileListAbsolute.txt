@@ -1,5 +1,0 @@
-C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model1\Model1\bin\Debug\Model1.dll
-C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model1\Model1\bin\Debug\Model1.pdb
-C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model1\Model1\obj\Debug\Model1.csprojResolveAssemblyReference.cache
-C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model1\Model1\obj\Debug\Model1.dll
-C:\Users\Igor' Antropov\Documents\Visual Studio 2015\Projects\NTVP\Model1\Model1\obj\Debug\Model1.pdb

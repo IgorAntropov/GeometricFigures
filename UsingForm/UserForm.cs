@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 
@@ -15,8 +8,8 @@ namespace UsingForm
     {
         public string FigureName { set; get; }
         public double FigureSquare { set; get; }
-        public double var1Name { set; get; }
-        public double var2Name { set; get; }
+        public double Var1Name { set; get; }
+        public double Var2Name { set; get; }
         public event OnCalculate Calculated;
 
         public UserForm()
@@ -34,32 +27,27 @@ namespace UsingForm
             Variable3.Enabled = false;
             OK.Enabled = false;
             rec.Enabled = false;
-            label1.Text = "Выберите фигуру для расчета площади";
+            label1.Text = @"Выберите фигуру для расчета площади";
         }
 
         public void button1_Click(object sender, EventArgs e)
         {
-
         }
 
         public void button2_Click(object sender, EventArgs e)
         {
-
         }
 
         public void button3_Click(object sender, EventArgs e)
         {
-
         }
 
         public void button6_Click(object sender, EventArgs e)
         {
-            
         }
 
         public void button5_Click(object sender, EventArgs e)
         {
-            
         }
 
         public void button4_Click(object sender, EventArgs e)
@@ -92,14 +80,12 @@ namespace UsingForm
         {
             if (!(Char.IsDigit(e.KeyChar)))
             {
-                if (e.KeyChar == ',' || e.KeyChar == (char)Keys.Back)
+                if (e.KeyChar == ',' || e.KeyChar == (char) Keys.Back)
                 {
-                    if (e.KeyChar == (char)Keys.Back)
+                    if (e.KeyChar == (char) Keys.Back)
                     {
-
                     }
-                    else
-                        if (Variable1.Text.Contains(","))
+                    else if (Variable1.Text.Contains(","))
                     {
                         e.Handled = true;
                     }
@@ -115,14 +101,12 @@ namespace UsingForm
         {
             if (!(Char.IsDigit(e.KeyChar)))
             {
-                if (e.KeyChar == ',' || e.KeyChar == (char)Keys.Back)
+                if (e.KeyChar == ',' || e.KeyChar == (char) Keys.Back)
                 {
-                    if (e.KeyChar == (char)Keys.Back)
+                    if (e.KeyChar == (char) Keys.Back)
                     {
-
                     }
-                    else
-                        if (Variable2.Text.Contains(","))
+                    else if (Variable2.Text.Contains(","))
                     {
                         e.Handled = true;
                     }
@@ -136,27 +120,25 @@ namespace UsingForm
 
         public void button1_Click_1(object sender, EventArgs e)
         {
-            
         }
 
         public void button1_Click_2(object sender, EventArgs e)
         {
-            
         }
 
         void Calculate()
         {
-            if (comboBox.SelectedIndex==0)
+            if (comboBox.SelectedIndex == 0)
             {
                 if (Variable1.Text == string.Empty)
                 {
 
                     {
                         MessageBox.Show(
-                          "Задайте пожалуйста радиус.",
-                          "Сообщение",
-                          MessageBoxButtons.OK,
-                          MessageBoxIcon.Information);
+                            @"Задайте пожалуйста радиус.",
+                            @"Сообщение",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
                     }
                     return;
                 }
@@ -167,8 +149,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Радиус равен или меньше 0",
-                            "Ошибка",
+                            @"Радиус равен или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
@@ -177,8 +159,8 @@ namespace UsingForm
 
                 Circle circle = new Circle(r);
                 double vol = circle.Calculate();
-                var1Name = r;
-                label1.Text = "Площадь круга по введенным данным равна " + vol.ToString("F");
+                Var1Name = r;
+                label1.Text = @"Площадь круга по введенным данным равна " + vol.ToString("F");
             }
             if (comboBox.SelectedIndex == 1)
             {
@@ -186,8 +168,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Пожалуйста введите длину стороны А.",
-                            "Сообщение",
+                            @"Пожалуйста введите длину стороны А.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -198,8 +180,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Пожалуйста введите длину стороны B.",
-                            "Сообщение",
+                            @"Пожалуйста введите длину стороны B.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -214,8 +196,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Длина стороны А равна или меньше 0",
-                            "Ошибка",
+                            @"Длина стороны А равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
@@ -226,19 +208,19 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Длина стороны B равна или меньше 0",
-                            "Ошибка",
+                            @"Длина стороны B равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
                     return;
                 }
 
-                Model.Rectangle rectangle = new Model.Rectangle(a, b);
-                double vol = rectangle.Calculate();
-                var1Name = a;
-                var2Name = b;
-                label1.Text = "Площадь прямоугольника по введенным данным равна " + vol.ToString("F");
+                var rectangle = new Rectangle(a, b);
+                var vol = rectangle.Calculate();
+                Var1Name = a;
+                Var2Name = b;
+                label1.Text = @"Площадь прямоугольника по введенным данным равна " + vol.ToString("F");
             }
             if (comboBox.SelectedIndex == 2)
             {
@@ -246,8 +228,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Задайте пожалуйста длину треугольника.",
-                            "Сообщение",
+                            @"Задайте пожалуйста длину треугольника.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -258,8 +240,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Задайте пожалуйста высоту треугольника.",
-                            "Сообщение",
+                            @"Задайте пожалуйста высоту треугольника.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -273,8 +255,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Длина  равна или меньше 0",
-                            "Ошибка",
+                            @"Длина  равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
@@ -285,19 +267,19 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Высота треугольника равна или меньше 0",
-                            "Ошибка",
+                            @"Высота треугольника равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
                     return;
                 }
 
-                Model.Triangle triangle = new Triangle(a, b);
-                double vol = triangle.Calculate();
-                var1Name = a;
-                var2Name = b;
-                label1.Text = "Площадь треугольника по введенным данным равна " + vol.ToString("F");
+                var triangle = new Triangle(a, b);
+                var vol = triangle.Calculate();
+                Var1Name = a;
+                Var2Name = b;
+                label1.Text = @"Площадь треугольника по введенным данным равна " + vol.ToString("F");
             }
         }
 
@@ -310,10 +292,10 @@ namespace UsingForm
 
                     {
                         MessageBox.Show(
-                          "Задайте пожалуйста радиус.",
-                          "Сообщение",
-                          MessageBoxButtons.OK,
-                          MessageBoxIcon.Information);
+                            @"Задайте пожалуйста радиус.",
+                            @"Сообщение",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
                     }
                     return;
                 }
@@ -324,8 +306,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Радиус равен или меньше 0",
-                            "Ошибка",
+                            @"Радиус равен или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
@@ -334,10 +316,10 @@ namespace UsingForm
 
                 Circle circle = new Circle(r);
                 double vol = circle.Calculate();
-                label1.Text = "Площадь круга по введенным данным равна " + vol.ToString("F");
+                label1.Text = @"Площадь круга по введенным данным равна " + vol.ToString("F");
                 FigureName = "круг";
                 FigureSquare = vol;
-                var1Name = r;
+                Var1Name = r;
             }
             if (comboBox.SelectedIndex == 1)
             {
@@ -345,8 +327,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Пожалуйста введите длину стороны А.",
-                            "Сообщение",
+                            @"Пожалуйста введите длину стороны А.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -357,8 +339,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Пожалуйста введите длину стороны B.",
-                            "Сообщение",
+                            @"Пожалуйста введите длину стороны B.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -373,8 +355,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Длина стороны А равна или меньше 0",
-                            "Ошибка",
+                            @"Длина стороны А равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
@@ -385,21 +367,21 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Длина стороны B равна или меньше 0",
-                            "Ошибка",
+                            @"Длина стороны B равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
                     return;
                 }
 
-                Model.Rectangle rectangle = new Model.Rectangle(a, b);
-                double vol = rectangle.Calculate();
-                label1.Text = "Площадь прямоугольника по введенным данным равна " + vol.ToString("F");
+                var rectangle = new Rectangle(a, b);
+                var vol = rectangle.Calculate();
+                label1.Text = @"Площадь прямоугольника по введенным данным равна " + vol.ToString("F");
                 FigureName = "прямоугольник";
                 FigureSquare = vol;
-                var1Name = a;
-                var2Name = b;
+                Var1Name = a;
+                Var2Name = b;
             }
             if (comboBox.SelectedIndex == 2)
             {
@@ -407,8 +389,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Задайте пожалуйста длину треугольника.",
-                            "Сообщение",
+                            @"Задайте пожалуйста длину треугольника.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -419,8 +401,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Задайте пожалуйста высоту треугольника.",
-                            "Сообщение",
+                            @"Задайте пожалуйста высоту треугольника.",
+                            @"Сообщение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -434,8 +416,8 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Длина  равна или меньше 0",
-                            "Ошибка",
+                            @"Длина  равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
@@ -446,46 +428,43 @@ namespace UsingForm
                 {
                     {
                         MessageBox.Show(
-                            "Высота треугольника равна или меньше 0",
-                            "Ошибка",
+                            @"Высота треугольника равна или меньше 0",
+                            @"Ошибка",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     }
                     return;
                 }
 
-                Model.Triangle triangle = new Triangle(a, b);
-                double vol = triangle.Calculate();
-                label1.Text = "Площадь треугольника по введенным данным равна " + vol.ToString("F");
+                var triangle = new Triangle(a, b);
+                var vol = triangle.Calculate();
+                label1.Text = @"Площадь треугольника по введенным данным равна " + vol.ToString("F");
                 FigureName = "треугольник";
                 FigureSquare = vol;
-                var1Name = a;
-                var2Name = b;
+                Var1Name = a;
+                Var2Name = b;
             }
-            if (Calculated != null) Calculated(FigureName, FigureSquare, var1Name, var2Name);
+            if (Calculated != null) Calculated(FigureName, FigureSquare, Var1Name, Var2Name);
         }
+
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void PictureBox_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Variable3_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar)))
             {
-                if (e.KeyChar == ',' || e.KeyChar == (char)Keys.Back)
+                if (e.KeyChar == ',' || e.KeyChar == (char) Keys.Back)
                 {
-                    if (e.KeyChar == (char)Keys.Back)
+                    if (e.KeyChar == (char) Keys.Back)
                     {
-
                     }
-                    else
-                        if (Variable1.Text.Contains(","))
+                    else if (Variable1.Text.Contains(","))
                     {
                         e.Handled = true;
                     }
@@ -496,14 +475,16 @@ namespace UsingForm
                 }
             }
         }
+
         public delegate void OnCalculate(string figName, double figSquare, double var1, double var2);
 
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox.SelectedIndex == 0)
             {
-                PictureBox.Load("C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
-                label1.Text = "Для нахождения площади круга введите радиус";
+                PictureBox.Load(
+                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
+                label1.Text = @"Для нахождения площади круга введите радиус";
                 Variable1.Clear();
                 Variable2.Clear();
                 Variable3.Clear();
@@ -516,9 +497,10 @@ namespace UsingForm
 
             if (comboBox.SelectedIndex == 1)
             {
-                PictureBox.Load("C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
-                label1.Text = "Для нахождения площади прямоугольника введите длины его смежных сторон";
-                label3.Text = ("B");
+                PictureBox.Load(
+                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
+                label1.Text = @"Для нахождения площади прямоугольника введите длины его смежных сторон";
+                label3.Text = @"B";
                 Variable1.Clear();
                 Variable2.Clear();
                 Variable3.Clear();
@@ -531,9 +513,10 @@ namespace UsingForm
 
             if (comboBox.SelectedIndex == 2)
             {
-                PictureBox.Load("C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
-                label1.Text = "Для нахождения площади треугольника введите длину и высоту";
-                label3.Text = ("H");
+                PictureBox.Load(
+                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
+                label1.Text = @"Для нахождения площади треугольника введите длину и высоту";
+                label3.Text = @"H";
                 Variable1.Clear();
                 Variable2.Clear();
                 Variable3.Clear();

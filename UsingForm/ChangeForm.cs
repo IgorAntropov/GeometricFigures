@@ -5,17 +5,44 @@ namespace UsingForm
 {
     public partial class ChangeForm : Form
     {
+        /// <summary>
+        /// Название фигуры для отправки
+        /// </summary>
         private string _lb11;
+
+        /// <summary>
+        /// Перерасчет площади для таблицы 
+        /// </summary>
         public double cl { set; get; }
+
+        /// <summary>
+        /// Перерасчет радиуса для таблицы
+        /// </summary>
         public double rr { set; get; }
+
+        /// <summary>
+        /// Перерасчет первой переменной для таблицы
+        /// </summary>
         public double aa { set; get; }
+
+        /// <summary>
+        /// Перерасчет второй переменной для таблицы
+        /// </summary>
         public double bb { set; get; }
 
+        /// <summary>
+        /// Поддержка конструктора 
+        /// </summary>
         public ChangeForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Проверка заполнения и расчет данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             var lb1 = label1.Text;
@@ -175,11 +202,21 @@ namespace UsingForm
             }
         }
 
+        /// <summary>
+        /// Запрет пересохранения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeForm_Load(object sender, EventArgs e)
         {
             SaveChange.Enabled = false;
         }
 
+        /// <summary>
+        /// Фильтрация вводимых данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar)))
@@ -201,6 +238,11 @@ namespace UsingForm
             }
         }
 
+        /// <summary>
+        /// Фильтрация вводимых данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar)))
@@ -222,6 +264,11 @@ namespace UsingForm
             }
         }
 
+        /// <summary>
+        /// Передача данных в таблицу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveChange_Click(object sender, EventArgs e)
         {
             var main = this.Owner as MainForm;

@@ -94,6 +94,7 @@
             // 
             // SaveChange
             // 
+            this.SaveChange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.SaveChange.Location = new System.Drawing.Point(4, 172);
             this.SaveChange.Name = "SaveChange";
             this.SaveChange.Size = new System.Drawing.Size(102, 37);
@@ -114,6 +115,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox1.Location = new System.Drawing.Point(124, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(164, 162);
@@ -134,8 +136,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.MaximumSize = new System.Drawing.Size(320, 260);
+            this.MaximumSize = new System.Drawing.Size(1400, 740);
             this.MinimumSize = new System.Drawing.Size(291, 234);
             this.Name = "ChangeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

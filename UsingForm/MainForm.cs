@@ -7,13 +7,22 @@ namespace UsingForm
 {
     public partial class MainForm : Form
     {
+
         static string path;
 
+        /// <summary>
+        /// Поддержка конструктора
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Вывод справки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void HelpMenu_Click(object sender, EventArgs e)
         {
             {
@@ -25,11 +34,21 @@ namespace UsingForm
             }
         }
 
+        /// <summary>
+        /// Закрытие
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void CloseMenu_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Добавление элемента в таблицу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void button1_Click(object sender, EventArgs e)
         {
             UserForm fadd = new UserForm();
@@ -48,11 +67,23 @@ namespace UsingForm
             }
         }
 
+        /// <summary>
+        /// Запись созданного элемента и его данных
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="square"></param>
+        /// <param name="var1"></param>
+        /// <param name="var2"></param>
         void fadd_Calculated(string name, double square, double var1, double var2)
         {
             dataGridView1.Rows.Add(name, square, var1, var2);
         }
 
+        /// <summary>
+        /// Настройка формы при открытии
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             SaveMenu.Enabled = false;
@@ -63,6 +94,11 @@ namespace UsingForm
             Change.Enabled = false;
         }
 
+        /// <summary>
+        /// Открытие файла
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OpenMenu_Click(object sender, EventArgs e)
         {
             Stream myStr = null;
@@ -101,12 +137,21 @@ namespace UsingForm
             }
         }
 
-
+        /// <summary>
+        /// Вызов метода сохранения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void SaveMenu_Click(object sender, EventArgs e)
         {
             Save();
         }
 
+        /// <summary>
+        /// Вызов метода сохраненить как
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void SaveAsMenu_Click(object sender, EventArgs e)
         {
             SaveAs();
@@ -116,6 +161,11 @@ namespace UsingForm
         {
         }
 
+        /// <summary>
+        /// Удаление строки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Delete_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow itemDelet in dataGridView1.SelectedRows)
@@ -126,6 +176,11 @@ namespace UsingForm
         {
         }
 
+        /// <summary>
+        /// Создать таблицу и вызов метода проверки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreateMenu_Click(object sender, EventArgs e)
         {
             Check();
@@ -133,6 +188,9 @@ namespace UsingForm
             Delete.Enabled = false;
         }
 
+        /// <summary>
+        /// Проверка и создание столбцов
+        /// </summary>
         public void Check()
         {
             if (dataGridView1.Rows.Count != 0)
@@ -247,6 +305,9 @@ namespace UsingForm
             }
         }
 
+        /// <summary>
+        /// Пересохранение документа
+        /// </summary>
         public void Save()
         {
             using (var myStream = new FileStream(path, FileMode.OpenOrCreate))
@@ -267,6 +328,9 @@ namespace UsingForm
             }
         }
 
+        /// <summary>
+        /// Сохранение документа
+        /// </summary>
         public void SaveAs()
         {
             System.IO.Stream myStream;
@@ -295,11 +359,18 @@ namespace UsingForm
             }
         }
 
+        /// <summary>
+        /// Очистка таблицы
+        /// </summary>
         private void DeleteColumn()
         {
             dataGridView1.Columns.Clear();
         }
 
+        /// <summary>
+        /// Удаление
+        /// </summary>
+        /// <param name="dataGridView1"></param>
         public void Clear(DataGridView dataGridView1)
         {
             while (dataGridView1.Rows.Count > 1)
@@ -311,26 +382,30 @@ namespace UsingForm
         {
         }
 
+        /// <summary>
+        /// Настройка активности
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows[0].Cells[0].Value == null)
+            if (dataGridView1.Rows.Count == 0)
             {
                 Delete.Enabled = false;
-            }
-            else
-            {
-                Delete.Enabled = true;
-            }
-            if (dataGridView1.Rows[0].Cells[0].Value == null)
-            {
                 Change.Enabled = false;
             }
             else
             {
+                Delete.Enabled = true;
                 Change.Enabled = true;
             }
         }
 
+        /// <summary>
+        /// Поиск по таблице
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             for (var i = 0; i < dataGridView1.RowCount; i++)
@@ -350,11 +425,21 @@ namespace UsingForm
         {
         }
 
+        /// <summary>
+        /// Активность кнопки удаления
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Search_MouseClick(object sender, MouseEventArgs e)
         {
             Delete.Enabled = true;
         }
 
+        /// <summary>
+        /// Вызов и настройка формы изменения элемента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Change_Click(object sender, EventArgs e)
         {
             var formadd = new ChangeForm();

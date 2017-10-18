@@ -6,17 +6,45 @@ namespace UsingForm
 {
     public partial class UserForm : Form
     {
+        /// <summary>
+        /// Название фигуры для таблицы
+        /// </summary>
         public string FigureName { set; get; }
+
+        /// <summary>
+        /// Площадь фигуры для таблицы
+        /// </summary>
         public double FigureSquare { set; get; }
+
+        /// <summary>
+        /// Первое введенное значение для таблицы
+        /// </summary>
         public double Var1Name { set; get; }
+
+        /// <summary>
+        /// Второе введенное значение для таблицы
+        /// </summary>
         public double Var2Name { set; get; }
+
+        /// <summary>
+        /// Для записи в таблицу
+        /// </summary>
         public event OnCalculate Calculated;
 
+
+        /// <summary>
+        /// Поддержка конструктора 
+        /// </summary>
         public UserForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Настройка элементов формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Form1_Load(object sender, EventArgs e)
         {
             Variable1.Clear();
@@ -50,6 +78,11 @@ namespace UsingForm
         {
         }
 
+        /// <summary>
+        /// Разрешение на занесение данных в таблицу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void button4_Click(object sender, EventArgs e)
         {
             Calculate();
@@ -76,6 +109,11 @@ namespace UsingForm
             }
         }
 
+        /// <summary>
+        /// Фильтрация вводимых данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar)))
@@ -97,6 +135,12 @@ namespace UsingForm
             }
         }
 
+
+        /// <summary>
+        /// Фильтрация вводимых данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar)))
@@ -126,6 +170,9 @@ namespace UsingForm
         {
         }
 
+        /// <summary>
+        /// Проверка ввода данных
+        /// </summary>
         void Calculate()
         {
             if (comboBox.SelectedIndex == 0)
@@ -283,6 +330,9 @@ namespace UsingForm
             }
         }
 
+        /// <summary>
+        /// Проверка ввода данных
+        /// </summary>
         void Calculate1()
         {
             if (comboBox.SelectedIndex == 0)
@@ -455,6 +505,11 @@ namespace UsingForm
         {
         }
 
+        /// <summary>
+        /// Фильтрация вводимых данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Variable3_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar)))
@@ -478,6 +533,11 @@ namespace UsingForm
 
         public delegate void OnCalculate(string figName, double figSquare, double var1, double var2);
 
+        /// <summary>
+        /// Загрузка изображений и настройка формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox.SelectedIndex == 0)
@@ -527,7 +587,11 @@ namespace UsingForm
                 rec.Enabled = false;
             }
         }
-
+        /// <summary>
+        /// Вызов метода
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click_3(object sender, EventArgs e)
         {
             Calculate1();

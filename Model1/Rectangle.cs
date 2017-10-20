@@ -18,6 +18,31 @@ namespace Model
         private double _width;
 
         /// <summary>
+        /// Геттер для площади прямоугольника
+        /// </summary>
+        public double Square => Calculate();
+
+        /// <summary>
+        /// Геттер\Сеттер для длины прямоугольника
+        /// </summary>
+        public double Length
+        {
+            get { return _length; }
+
+            set { _length = value; }
+        }
+
+        /// <summary>
+        /// Геттер\Сеттер для ширины прямоугольника
+        /// </summary>
+        public double Width
+        {
+            get { return _width; }
+
+            set { _width = value; }
+        }
+
+        /// <summary>
         /// Валидация и присвоение.
         /// </summary>
         /// <param name="a"></param>

@@ -13,6 +13,20 @@ namespace Model
         private double _radius;
 
         /// <summary>
+        /// Геттер для площади круга
+        /// </summary>
+        public double Square => Calculate();
+
+        /// <summary>
+        /// Геттер/сеттер для площади круга
+        /// </summary>
+        public double Radius
+        {
+            get { return _radius; }
+            set { _radius = value; }
+        }
+
+        /// <summary>
         /// Валидация и присвоение.
         /// </summary>
         /// <param name="r"></param>

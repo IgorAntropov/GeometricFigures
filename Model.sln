@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model1\Model.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "UsingForm\Interface.csproj", "{2679F624-D74F-42E0-B660-3FDFE47EA2C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{CD470372-834D-4D08-9941-EFF8A16985DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8993EE24-B3B4-4559-8EBE-AC2884582FF8} = {8993EE24-B3B4-4559-8EBE-AC2884582FF8}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +26,10 @@ Global
 		{2679F624-D74F-42E0-B660-3FDFE47EA2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2679F624-D74F-42E0-B660-3FDFE47EA2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2679F624-D74F-42E0-B660-3FDFE47EA2C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD470372-834D-4D08-9941-EFF8A16985DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD470372-834D-4D08-9941-EFF8A16985DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD470372-834D-4D08-9941-EFF8A16985DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD470372-834D-4D08-9941-EFF8A16985DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

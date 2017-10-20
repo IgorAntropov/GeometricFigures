@@ -6,6 +6,10 @@
     interface Ifigure
     {
         /// <summary>
+        /// Площадь фигуры
+        /// </summary>
+        double Square { get; }
+        /// <summary>
         /// Расчет площади фигуры.
         /// </summary>
         /// <returns></returns>

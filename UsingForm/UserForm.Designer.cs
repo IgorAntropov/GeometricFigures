@@ -39,7 +39,7 @@
             this.Variable3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.rec = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // OK
@@ -119,10 +119,12 @@
             this.comboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox.FormattingEnabled = true;
-            this.comboBox.Items.AddRange(new object[] {
-            "Круг",
-            "Прямоугольник",
-            "Треугольник"});
+            this.comboBox.Items.AddRange(new object[]
+            {
+                "Круг",
+                "Прямоугольник",
+                "Треугольник"
+            });
             this.comboBox.Location = new System.Drawing.Point(52, 5);
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(160, 21);
@@ -183,13 +185,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление данных";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
+
         private System.Windows.Forms.Button OK;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

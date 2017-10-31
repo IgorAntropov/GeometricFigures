@@ -7,7 +7,6 @@ namespace UsingForm
 {
     public partial class MainForm : Form
     {
-
         static string path;
 
         /// <summary>
@@ -54,7 +53,7 @@ namespace UsingForm
             UserForm fadd = new UserForm();
             fadd.Calculated += fadd_Calculated;
             fadd.ShowDialog();
-            if (dataGridView1.Rows[0].Cells[0].Value == null)
+            if (dataGridView1.Rows.Count == null)
             {
                 SaveMenu.Enabled = false;
                 SaveAsMenu.Enabled = false;
@@ -219,12 +218,17 @@ namespace UsingForm
                         HeaderText = @"Исходный параметр №1",
                         Width = 300
                     });
+                    dataGridView1.Columns["var1"].Visible = false;
+
                     dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
                     {
                         Name = "var2",
                         HeaderText = @"Исходный параметр №2",
                         Width = 300
                     });
+                    dataGridView1.Columns["var2"].Visible = false;
+
+                    dataGridView1.AllowUserToAddRows = false;
                     Add.Enabled = true;
                     SaveMenu.Enabled = false;
                     Change.Enabled = false;
@@ -261,13 +265,17 @@ namespace UsingForm
                         HeaderText = @"Исходный параметр №1",
                         Width = 300
                     });
+                    dataGridView1.Columns["var1"].Visible = false;
+
                     dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
                     {
                         Name = "var2",
                         HeaderText = @"Исходный параметр №2",
                         Width = 300
                     });
+                    dataGridView1.Columns["var2"].Visible = false;
                 }
+                dataGridView1.AllowUserToAddRows = false;
             }
             else
             {
@@ -290,12 +298,17 @@ namespace UsingForm
                     HeaderText = @"Исходный параметр №1",
                     Width = 300
                 });
+                dataGridView1.Columns["var1"].Visible = false;
+
                 dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
                 {
                     Name = "var2",
                     HeaderText = @"Исходный параметр №2",
                     Width = 300
                 });
+                dataGridView1.Columns["var2"].Visible = false;
+
+                dataGridView1.AllowUserToAddRows = false;
                 Add.Enabled = true;
                 Change.Enabled = false;
                 Delete.Enabled = false;
@@ -393,11 +406,13 @@ namespace UsingForm
             {
                 Delete.Enabled = false;
                 Change.Enabled = false;
+                Search.Enabled = false;
             }
             else
             {
                 Delete.Enabled = true;
                 Change.Enabled = true;
+                Search.Enabled = true;
             }
         }
 
@@ -444,7 +459,7 @@ namespace UsingForm
         {
             var formadd = new ChangeForm();
             formadd.Owner = this;
-            
+
             var fg = dataGridView1[0, dataGridView1.CurrentRow.Index].Value.ToString();
             var sq = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
             var vr1 = dataGridView1[2, dataGridView1.CurrentRow.Index].Value.ToString();

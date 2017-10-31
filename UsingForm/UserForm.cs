@@ -587,6 +587,7 @@ namespace UsingForm
                 rec.Enabled = false;
             }
         }
+
         /// <summary>
         /// Вызов метода
         /// </summary>

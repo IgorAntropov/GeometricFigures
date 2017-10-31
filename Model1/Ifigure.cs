@@ -9,6 +9,7 @@
         /// Площадь фигуры
         /// </summary>
         double Square { get; }
+
         /// <summary>
         /// Расчет площади фигуры.
         /// </summary>

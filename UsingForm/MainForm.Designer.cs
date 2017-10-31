@@ -53,7 +53,7 @@
             this.HelpMenu});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.Name = "menuMain";
-            this.menuMain.Size = new System.Drawing.Size(552, 24);
+            this.menuMain.Size = new System.Drawing.Size(409, 24);
             this.menuMain.TabIndex = 0;
             this.menuMain.Text = "MenuMain";
             this.menuMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuMain_ItemClicked);
@@ -117,7 +117,7 @@
             // Add
             // 
             this.Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Add.Location = new System.Drawing.Point(12, 243);
+            this.Add.Location = new System.Drawing.Point(34, 246);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(95, 29);
             this.Add.TabIndex = 1;
@@ -127,8 +127,8 @@
             // 
             // Delete
             // 
-            this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Delete.Location = new System.Drawing.Point(214, 243);
+            this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Delete.Location = new System.Drawing.Point(263, 246);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(95, 29);
             this.Delete.TabIndex = 3;
@@ -138,7 +138,8 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
@@ -146,10 +147,11 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Desktop;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
+            this.dataGridView1.Location = new System.Drawing.Point(50, 30);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(552, 206);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(294, 206);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
@@ -160,8 +162,9 @@
             // 
             // Search
             // 
-            this.Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Search.Location = new System.Drawing.Point(268, 4);
+            this.Search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search.Location = new System.Drawing.Point(249, 4);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(95, 20);
             this.Search.TabIndex = 5;
@@ -171,10 +174,10 @@
             // 
             // Change
             // 
-            this.Change.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Change.Location = new System.Drawing.Point(113, 243);
+            this.Change.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Change.Location = new System.Drawing.Point(147, 246);
             this.Change.Name = "Change";
-            this.Change.Size = new System.Drawing.Size(95, 29);
+            this.Change.Size = new System.Drawing.Size(102, 29);
             this.Change.TabIndex = 6;
             this.Change.Text = "Изменить";
             this.Change.UseVisualStyleBackColor = true;
@@ -184,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 280);
+            this.ClientSize = new System.Drawing.Size(409, 284);
             this.Controls.Add(this.Change);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.dataGridView1);
@@ -193,7 +196,7 @@
             this.Controls.Add(this.menuMain);
             this.MainMenuStrip = this.menuMain;
             this.MaximumSize = new System.Drawing.Size(1400, 740);
-            this.MinimumSize = new System.Drawing.Size(568, 323);
+            this.MinimumSize = new System.Drawing.Size(425, 323);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Расчет площади геометрических фигур";

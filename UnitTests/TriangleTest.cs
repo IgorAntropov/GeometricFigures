@@ -17,7 +17,6 @@ namespace UnitTests
         public void GetSquare(double _length, double _height)
         {
             var triangle = new Triangle(_length, _height);
-            var triangleSquare = triangle.Square;
         }
     }
 }

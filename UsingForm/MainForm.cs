@@ -122,11 +122,11 @@ namespace UsingForm
                     var num = 0;
                     var str1 = myRead.ReadToEnd().Split('\n');
                     num = str1.Count();
-                    dataGridView1.RowCount = num + 1;
-                    for (var i = 0; i < num; i++)
+                    dataGridView1.RowCount = num -1;
+                    for (var i = 0; i < num-1; i++)
                     {
                         str = str1[i].Split(':');
-                        for (var j = 0; j < dataGridView1.ColumnCount; j++)
+                        for (var j = 0; j < dataGridView1.ColumnCount-1; j++)
                         {
                             dataGridView1.Rows[i].Cells[j].Value = str[j];
                         }
@@ -327,7 +327,7 @@ namespace UsingForm
             {
                 System.Text.Encoding.GetEncoding(1251);
                 StreamWriter myWriter = new StreamWriter(myStream);
-                for (var i = 0; i < dataGridView1.RowCount - 1; i++)
+                for (var i = 0; i < dataGridView1.RowCount ; i++)
                 {
                     for (var j = 0; j < dataGridView1.ColumnCount; j++)
                     {
@@ -335,7 +335,7 @@ namespace UsingForm
                         if ((dataGridView1.ColumnCount - j) != 1) myWriter.Write(":");
                     }
 
-                    if (((dataGridView1.RowCount - 1) - i - 1) != 0) myWriter.WriteLine();
+                    if ((dataGridView1.RowCount ) != 0) myWriter.WriteLine();
                 }
                 myWriter.Close();
             }
@@ -356,7 +356,7 @@ namespace UsingForm
                 {
                     System.Text.Encoding.GetEncoding(1251);
                     StreamWriter myWriter = new StreamWriter(myStream);
-                    for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                    for (int i = 0; i < dataGridView1.RowCount ; i++)
                     {
                         for (int j = 0; j < dataGridView1.ColumnCount; j++)
                         {
@@ -364,7 +364,7 @@ namespace UsingForm
                             if ((dataGridView1.ColumnCount - j) != 1) myWriter.Write(":");
                         }
 
-                        if (((dataGridView1.RowCount - 1) - i - 1) != 0) myWriter.WriteLine();
+                        if ((dataGridView1.RowCount )  != 0) myWriter.WriteLine();
                     }
                     myWriter.Close();
                 }

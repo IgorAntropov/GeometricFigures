@@ -46,6 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CircleTest.cs" />
+    <Compile Include="NegativeCircleTest.cs" />
+    <Compile Include="NegativeRectangleTest.cs" />
+    <Compile Include="NegativeTriangleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RectangleTest.cs" />
     <Compile Include="TriangleTest.cs" />

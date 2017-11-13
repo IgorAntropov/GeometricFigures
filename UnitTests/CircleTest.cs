@@ -16,7 +16,6 @@ namespace UnitTests
         public void GetSquare(double _radius)
         {
             var circle = new Circle(_radius);
-            var circleSquare = circle.Square;
         }
     }
 }

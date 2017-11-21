@@ -5,7 +5,7 @@ namespace Model
     /// <summary>
     /// Создание класса Круг.
     /// </summary>
-    public class Circle : Ifigure
+    public class Circle : IFigure
     {
         /// <summary>
         /// Радиус круга.

@@ -128,7 +128,7 @@
             // Delete
             // 
             this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Delete.Location = new System.Drawing.Point(263, 246);
+            this.Delete.Location = new System.Drawing.Point(266, 246);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(95, 29);
             this.Delete.TabIndex = 3;

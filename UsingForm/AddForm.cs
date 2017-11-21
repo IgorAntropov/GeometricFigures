@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
+using System.IO;
 using Model;
 
 namespace UsingForm
 {
-    public partial class UserForm : Form
+    public partial class AddForm : Form
     {
         /// <summary>
         /// Название фигуры для таблицы
@@ -35,47 +37,9 @@ namespace UsingForm
         /// <summary>
         /// Поддержка конструктора 
         /// </summary>
-        public UserForm()
+        public AddForm()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Настройка элементов формы
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void Form1_Load(object sender, EventArgs e)
-        {
-            Variable1.Clear();
-            Variable2.Clear();
-            Variable3.Clear();
-            Variable1.Enabled = false;
-            Variable2.Enabled = false;
-            Variable3.Enabled = false;
-            OK.Enabled = false;
-            rec.Enabled = false;
-            label1.Text = @"Выберите фигуру для расчета площади";
-        }
-
-        public void button1_Click(object sender, EventArgs e)
-        {
-        }
-
-        public void button2_Click(object sender, EventArgs e)
-        {
-        }
-
-        public void button3_Click(object sender, EventArgs e)
-        {
-        }
-
-        public void button6_Click(object sender, EventArgs e)
-        {
-        }
-
-        public void button5_Click(object sender, EventArgs e)
-        {
         }
 
         /// <summary>
@@ -91,6 +55,7 @@ namespace UsingForm
                 if (Variable1.Text != string.Empty)
                 {
                     rec.Enabled = true;
+                    recChange.Enabled = true;
                 }
             }
             if (comboBox.SelectedIndex == 1)
@@ -98,6 +63,7 @@ namespace UsingForm
                 if (Variable2.Text != string.Empty && Variable3.Text != string.Empty)
                 {
                     rec.Enabled = true;
+                    recChange.Enabled = true;
                 }
             }
             if (comboBox.SelectedIndex == 2)
@@ -105,6 +71,7 @@ namespace UsingForm
                 if (Variable2.Text != string.Empty && Variable3.Text != string.Empty)
                 {
                     rec.Enabled = true;
+                    recChange.Enabled = true;
                 }
             }
         }
@@ -160,14 +127,6 @@ namespace UsingForm
                     e.Handled = true;
                 }
             }
-        }
-
-        public void button1_Click_1(object sender, EventArgs e)
-        {
-        }
-
-        public void button1_Click_2(object sender, EventArgs e)
-        {
         }
 
         /// <summary>
@@ -337,97 +296,19 @@ namespace UsingForm
         {
             if (comboBox.SelectedIndex == 0)
             {
-                if (Variable1.Text == string.Empty)
-                {
-
-                    {
-                        MessageBox.Show(
-                            @"Задайте пожалуйста радиус.",
-                            @"Сообщение",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
-                    return;
-                }
-
                 var r = double.Parse(Variable1.Text);
-
-                if (r < 0 || r == 0)
-                {
-                    {
-                        MessageBox.Show(
-                            @"Радиус равен или меньше 0",
-                            @"Ошибка",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-                    }
-                    return;
-                }
-
                 Circle circle = new Circle(r);
                 double vol = circle.Calculate();
-                label1.Text = @"Площадь круга по введенным данным равна " + vol.ToString("F");
                 FigureName = "круг";
                 FigureSquare = vol;
                 Var1Name = r;
             }
             if (comboBox.SelectedIndex == 1)
             {
-                if (Variable2.Text == string.Empty)
-                {
-                    {
-                        MessageBox.Show(
-                            @"Пожалуйста введите длину стороны А.",
-                            @"Сообщение",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
-                    return;
-                }
-
-                if (Variable3.Text == string.Empty)
-                {
-                    {
-                        MessageBox.Show(
-                            @"Пожалуйста введите длину стороны B.",
-                            @"Сообщение",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
-
-                    return;
-                }
-
                 var a = double.Parse(Variable2.Text);
                 var b = double.Parse(Variable3.Text);
-
-                if (a < 0 || a == 0)
-                {
-                    {
-                        MessageBox.Show(
-                            @"Длина стороны А равна или меньше 0",
-                            @"Ошибка",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-                    }
-                    return;
-                }
-
-                if (b < 0 || b == 0)
-                {
-                    {
-                        MessageBox.Show(
-                            @"Длина стороны B равна или меньше 0",
-                            @"Ошибка",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-                    }
-                    return;
-                }
-
                 var rectangle = new Rectangle(a, b);
                 var vol = rectangle.Calculate();
-                label1.Text = @"Площадь прямоугольника по введенным данным равна " + vol.ToString("F");
                 FigureName = "прямоугольник";
                 FigureSquare = vol;
                 Var1Name = a;
@@ -435,74 +316,16 @@ namespace UsingForm
             }
             if (comboBox.SelectedIndex == 2)
             {
-                if (Variable2.Text == string.Empty)
-                {
-                    {
-                        MessageBox.Show(
-                            @"Задайте пожалуйста длину треугольника.",
-                            @"Сообщение",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
-                    return;
-                }
-
-                if (Variable3.Text == string.Empty)
-                {
-                    {
-                        MessageBox.Show(
-                            @"Задайте пожалуйста высоту треугольника.",
-                            @"Сообщение",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
-                    return;
-                }
-
                 var a = double.Parse(Variable2.Text);
                 var b = double.Parse(Variable3.Text);
-
-                if (a < 0 || a == 0)
-                {
-                    {
-                        MessageBox.Show(
-                            @"Длина  равна или меньше 0",
-                            @"Ошибка",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-                    }
-                    return;
-                }
-
-                if (b < 0 || b == 0)
-                {
-                    {
-                        MessageBox.Show(
-                            @"Высота треугольника равна или меньше 0",
-                            @"Ошибка",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-                    }
-                    return;
-                }
-
                 var triangle = new Triangle(a, b);
                 var vol = triangle.Calculate();
-                label1.Text = @"Площадь треугольника по введенным данным равна " + vol.ToString("F");
                 FigureName = "треугольник";
                 FigureSquare = vol;
                 Var1Name = a;
                 Var2Name = b;
             }
             if (Calculated != null) Calculated(FigureName, FigureSquare, Var1Name, Var2Name);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PictureBox_Click(object sender, EventArgs e)
-        {
         }
 
         /// <summary>
@@ -542,6 +365,7 @@ namespace UsingForm
         {
             if (comboBox.SelectedIndex == 0)
             {
+                groupBox.Text = "Круг";
                 PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
                 label1.Text = @"Для нахождения площади круга введите радиус";
@@ -553,10 +377,12 @@ namespace UsingForm
                 Variable3.Enabled = false;
                 OK.Enabled = true;
                 rec.Enabled = false;
+                recChange.Enabled = false;
             }
 
             if (comboBox.SelectedIndex == 1)
             {
+                groupBox.Text = "Прямоугольник";
                 PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
                 label1.Text = @"Для нахождения площади прямоугольника введите длины его смежных сторон";
@@ -569,10 +395,12 @@ namespace UsingForm
                 Variable3.Enabled = true;
                 OK.Enabled = true;
                 rec.Enabled = false;
+                recChange.Enabled = false;
             }
 
             if (comboBox.SelectedIndex == 2)
             {
+                groupBox.Text = "Треугольник";
                 PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
                 label1.Text = @"Для нахождения площади треугольника введите длину и высоту";
@@ -585,6 +413,7 @@ namespace UsingForm
                 Variable3.Enabled = true;
                 OK.Enabled = true;
                 rec.Enabled = false;
+                recChange.Enabled = false;
             }
         }
 
@@ -596,6 +425,58 @@ namespace UsingForm
         private void button1_Click_3(object sender, EventArgs e)
         {
             Calculate1();
+        }
+
+        private void recChange_Click(object sender, EventArgs e)
+        {
+            Calculate1();
+            var main = this.Owner as MainForm;
+            if (main != null)
+            {
+                if (FigureName == "круг")
+                {
+                    main.dataGridView1.CurrentRow.Cells[1].Value = FigureSquare;
+                    main.dataGridView1.CurrentRow.Cells[2].Value = Var1Name;
+                }
+                if (FigureName == "прямоугольник")
+                {
+                    main.dataGridView1.CurrentRow.Cells[1].Value = FigureSquare;
+                    main.dataGridView1.CurrentRow.Cells[2].Value = Var1Name;
+                    main.dataGridView1.CurrentRow.Cells[3].Value = Var2Name;
+                }
+                if (FigureName == "треугольник")
+                {
+                    main.dataGridView1.CurrentRow.Cells[1].Value = FigureSquare;
+                    main.dataGridView1.CurrentRow.Cells[2].Value = Var1Name;
+                    main.dataGridView1.CurrentRow.Cells[3].Value = Var2Name;
+                }
+            }
+        }
+
+        private void AddForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox_TextChanged(object sender, EventArgs e)
+        {
+            if (groupBox.Text == "Круг")
+            {
+                Variable2.Visible = false;
+                Variable3.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+            }
+            if (groupBox.Text == "Прямоугольник")
+            {
+                Variable1.Visible = false;
+                label4.Visible = false;
+            }
+            if (groupBox.Text == "Треугольник")
+            {
+                Variable1.Visible = false;
+                label4.Visible = false;
+            }
         }
     }
 }

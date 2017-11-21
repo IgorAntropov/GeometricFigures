@@ -5,7 +5,7 @@ namespace Model
     /// <summary>
     /// Создание класса Прямоугольник.
     /// </summary>
-    public class Rectangle : Ifigure
+    public class Rectangle : IFigure
     {
         /// <summary>
         /// Длина прямоугольника.

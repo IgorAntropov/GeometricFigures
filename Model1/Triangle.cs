@@ -5,7 +5,7 @@ namespace Model
     /// <summary>
     /// Создание класса Треугольник.
     /// </summary>
-    public class Triangle : Ifigure
+    public class Triangle : IFigure
     {
         /// <summary>
         /// Длина треугольника.

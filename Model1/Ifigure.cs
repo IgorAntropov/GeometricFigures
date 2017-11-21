@@ -3,7 +3,7 @@
     /// <summary>
     /// Интерфейс геометрических фигур.
     /// </summary>
-    interface Ifigure
+    interface IFigure
     {
         /// <summary>
         /// Площадь фигуры

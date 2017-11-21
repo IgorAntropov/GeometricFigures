@@ -50,10 +50,22 @@ namespace UsingForm
         /// <param name="e"></param>
         public void button1_Click(object sender, EventArgs e)
         {
-            UserForm fadd = new UserForm();
+            AddForm fadd = new AddForm();
             fadd.Calculated += fadd_Calculated;
+            fadd.rec.Visible = true;
+            fadd.recChange.Visible = false;
+            fadd.Variable1.Clear();
+            fadd.Variable2.Clear();
+            fadd.Variable3.Clear();
+            fadd.Variable1.Enabled = false;
+            fadd.Variable2.Enabled = false;
+            fadd.Variable3.Enabled = false;
+            fadd.OK.Enabled = false;
+            fadd.rec.Enabled = false;
+            fadd.label1.Text = @"Выберите фигуру для расчета площади";
             fadd.ShowDialog();
-            if (dataGridView1.Rows.Count == null)
+
+            if (dataGridView1.Rows.Count == 0)
             {
                 SaveMenu.Enabled = false;
                 SaveAsMenu.Enabled = false;
@@ -119,14 +131,14 @@ namespace UsingForm
                     var myRead = new StreamReader(myStr, System.Text.Encoding.UTF8);
                     string[] str;
 
-                    var num = 0;
+                    var num = 1;
                     var str1 = myRead.ReadToEnd().Split('\n');
                     num = str1.Count();
-                    dataGridView1.RowCount = num -1;
+                    dataGridView1.RowCount = num-1;
                     for (var i = 0; i < num-1; i++)
                     {
                         str = str1[i].Split(':');
-                        for (var j = 0; j < dataGridView1.ColumnCount-1; j++)
+                        for (var j = 0; j < dataGridView1.ColumnCount; j++)
                         {
                             dataGridView1.Rows[i].Cells[j].Value = str[j];
                         }
@@ -361,7 +373,7 @@ namespace UsingForm
                         for (int j = 0; j < dataGridView1.ColumnCount; j++)
                         {
                             myWriter.Write(dataGridView1.Rows[i].Cells[j].Value.ToString());
-                            if ((dataGridView1.ColumnCount - j) != 1) myWriter.Write(":");
+                            if ((dataGridView1.ColumnCount -j) != 1) myWriter.Write(":");
                         }
 
                         if ((dataGridView1.RowCount )  != 0) myWriter.WriteLine();
@@ -457,36 +469,67 @@ namespace UsingForm
         /// <param name="e"></param>
         private void Change_Click(object sender, EventArgs e)
         {
-            var formadd = new ChangeForm();
+            var formadd = new AddForm();
             formadd.Owner = this;
 
+            formadd.rec.Visible = false;
+            formadd.recChange.Visible = true;
             var fg = dataGridView1[0, dataGridView1.CurrentRow.Index].Value.ToString();
             var sq = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
             var vr1 = dataGridView1[2, dataGridView1.CurrentRow.Index].Value.ToString();
             var vr2 = dataGridView1[3, dataGridView1.CurrentRow.Index].Value.ToString();
             if (fg == "круг")
             {
-                formadd.label3.Text = @"R";
-                formadd.textBox2.Enabled = false;
-                formadd.label4.Enabled = false;
-                formadd.pictureBox1.Load(
+                formadd.comboBox.SelectedIndex = 0;
+                formadd.comboBox.Enabled = false;
+                formadd.Variable2.Enabled = false;
+                formadd.Variable3.Enabled = false;
+                formadd.label2.Enabled = false;
+                formadd.label3.Enabled = false;
+                formadd.Variable1.Enabled = true;
+                formadd.label4.Enabled = true;
+                formadd.Variable1.Text = vr1;
+                formadd.Variable2.Text = @"0";
+                formadd.Variable3.Text = @"0";
+                formadd.label1.Text = @"Площадь круга по введенным данным равна " + sq;
+                formadd.PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
             }
             if (fg == "прямоугольник")
             {
-                formadd.pictureBox1.Load(
+                formadd.comboBox.SelectedIndex = 1;
+                formadd.comboBox.Enabled = false;
+                formadd.Variable1.Enabled = false;
+                formadd.label4.Enabled = false;
+                formadd.Variable2.Enabled = true;
+                formadd.Variable3.Enabled = true;
+                formadd.label2.Enabled = true;
+                formadd.label3.Enabled = true;
+                formadd.Variable1.Text = @"0";
+                formadd.Variable2.Text = vr1;
+                formadd.Variable3.Text = vr2;
+                formadd.label1.Text = @"Площадь прямоугольника по введенным данным равна "+sq;
+                formadd.PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
             }
             if (fg == "треугольник")
             {
-                formadd.label4.Text = @"H";
-                formadd.pictureBox1.Load(
+                formadd.comboBox.SelectedIndex = 2;
+                formadd.comboBox.Enabled = false;
+                formadd.Variable1.Enabled = false;
+                formadd.label4.Enabled = false;
+                formadd.Variable2.Enabled = true;
+                formadd.Variable3.Enabled = true;
+                formadd.label2.Enabled = true;
+                formadd.label3.Enabled = true;
+                formadd.Variable1.Text = @"0";
+                formadd.Variable2.Text = vr1;
+                formadd.Variable3.Text = vr2;
+                formadd.label1.Text = @"Площадь треугольника по введенным данным равна "+ sq;
+                formadd.label3.Text = @"H";
+                formadd.PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
             }
-            formadd.textBox1.Text = vr1;
-            formadd.textBox2.Text = vr2;
-            formadd.label1.Text = fg;
-            formadd.label2.Text = sq;
             formadd.ShowDialog();
         }
 

@@ -57,9 +57,15 @@ namespace UsingForm
             fadd.Variable1.Clear();
             fadd.Variable2.Clear();
             fadd.Variable3.Clear();
+            fadd.groupBox.Text ="";
             fadd.Variable1.Enabled = false;
             fadd.Variable2.Enabled = false;
             fadd.Variable3.Enabled = false;
+            fadd.Variable1.Visible = false;
+            fadd.Variable2.Visible = false;
+            fadd.Variable3.Visible = false;
+            fadd.label2.Visible = false;
+            fadd.label3.Visible = false;
             fadd.OK.Enabled = false;
             fadd.rec.Enabled = false;
             fadd.label1.Text = @"Выберите фигуру для расчета площади";
@@ -472,8 +478,14 @@ namespace UsingForm
             var formadd = new AddForm();
             formadd.Owner = this;
 
+            formadd.groupBox.Text = "";
             formadd.rec.Visible = false;
             formadd.recChange.Visible = true;
+            formadd.Variable1.Visible = false;
+            formadd.Variable2.Visible = false;
+            formadd.Variable3.Visible = false;
+            formadd.label2.Visible = false;
+            formadd.label3.Visible = false;
             var fg = dataGridView1[0, dataGridView1.CurrentRow.Index].Value.ToString();
             var sq = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
             var vr1 = dataGridView1[2, dataGridView1.CurrentRow.Index].Value.ToString();
@@ -482,15 +494,8 @@ namespace UsingForm
             {
                 formadd.comboBox.SelectedIndex = 0;
                 formadd.comboBox.Enabled = false;
-                formadd.Variable2.Enabled = false;
-                formadd.Variable3.Enabled = false;
-                formadd.label2.Enabled = false;
-                formadd.label3.Enabled = false;
                 formadd.Variable1.Enabled = true;
-                formadd.label4.Enabled = true;
                 formadd.Variable1.Text = vr1;
-                formadd.Variable2.Text = @"0";
-                formadd.Variable3.Text = @"0";
                 formadd.label1.Text = @"Площадь круга по введенным данным равна " + sq;
                 formadd.PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
@@ -499,13 +504,6 @@ namespace UsingForm
             {
                 formadd.comboBox.SelectedIndex = 1;
                 formadd.comboBox.Enabled = false;
-                formadd.Variable1.Enabled = false;
-                formadd.label4.Enabled = false;
-                formadd.Variable2.Enabled = true;
-                formadd.Variable3.Enabled = true;
-                formadd.label2.Enabled = true;
-                formadd.label3.Enabled = true;
-                formadd.Variable1.Text = @"0";
                 formadd.Variable2.Text = vr1;
                 formadd.Variable3.Text = vr2;
                 formadd.label1.Text = @"Площадь прямоугольника по введенным данным равна "+sq;
@@ -516,13 +514,6 @@ namespace UsingForm
             {
                 formadd.comboBox.SelectedIndex = 2;
                 formadd.comboBox.Enabled = false;
-                formadd.Variable1.Enabled = false;
-                formadd.label4.Enabled = false;
-                formadd.Variable2.Enabled = true;
-                formadd.Variable3.Enabled = true;
-                formadd.label2.Enabled = true;
-                formadd.label3.Enabled = true;
-                formadd.Variable1.Text = @"0";
                 formadd.Variable2.Text = vr1;
                 formadd.Variable3.Text = vr2;
                 formadd.label1.Text = @"Площадь треугольника по введенным данным равна "+ sq;

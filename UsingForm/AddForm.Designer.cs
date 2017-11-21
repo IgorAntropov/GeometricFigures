@@ -37,7 +37,6 @@
             this.Variable2 = new System.Windows.Forms.TextBox();
             this.comboBox = new System.Windows.Forms.ComboBox();
             this.Variable3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.rec = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.recChange = new System.Windows.Forms.Button();
@@ -98,7 +97,7 @@
             // Variable1
             // 
             this.Variable1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Variable1.Location = new System.Drawing.Point(4, 18);
+            this.Variable1.Location = new System.Drawing.Point(4, 44);
             this.Variable1.MaxLength = 5;
             this.Variable1.Name = "Variable1";
             this.Variable1.Size = new System.Drawing.Size(58, 20);
@@ -140,16 +139,6 @@
             this.Variable3.TabIndex = 14;
             this.Variable3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Variable3_KeyPress);
             // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(68, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(15, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "R";
-            // 
             // rec
             // 
             this.rec.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -164,7 +153,6 @@
             // groupBox
             // 
             this.groupBox.Controls.Add(this.recChange);
-            this.groupBox.Controls.Add(this.label4);
             this.groupBox.Controls.Add(this.rec);
             this.groupBox.Controls.Add(this.PictureBox);
             this.groupBox.Controls.Add(this.Variable3);
@@ -223,9 +211,8 @@
         public System.Windows.Forms.TextBox Variable2;
         public System.Windows.Forms.ComboBox comboBox;
         public System.Windows.Forms.TextBox Variable3;
-        public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Button rec;
-        private System.Windows.Forms.GroupBox groupBox;
+        public System.Windows.Forms.GroupBox groupBox;
         public System.Windows.Forms.Button recChange;
     }
 }

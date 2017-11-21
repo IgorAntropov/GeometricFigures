@@ -365,16 +365,20 @@ namespace UsingForm
         {
             if (comboBox.SelectedIndex == 0)
             {
-                groupBox.Text = "Круг";
+                groupBox.Text = @"Круг";
                 PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
                 label1.Text = @"Для нахождения площади круга введите радиус";
+                label2.Text = @"R";
                 Variable1.Clear();
                 Variable2.Clear();
                 Variable3.Clear();
                 Variable1.Enabled = true;
                 Variable2.Enabled = false;
                 Variable3.Enabled = false;
+                Variable1.Visible = true;
+                Variable2.Visible = false;
+                Variable3.Visible = false;
                 OK.Enabled = true;
                 rec.Enabled = false;
                 recChange.Enabled = false;
@@ -382,10 +386,11 @@ namespace UsingForm
 
             if (comboBox.SelectedIndex == 1)
             {
-                groupBox.Text = "Прямоугольник";
+                groupBox.Text = @"Прямоугольник";
                 PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
                 label1.Text = @"Для нахождения площади прямоугольника введите длины его смежных сторон";
+                label2.Text = @"A";
                 label3.Text = @"B";
                 Variable1.Clear();
                 Variable2.Clear();
@@ -393,6 +398,9 @@ namespace UsingForm
                 Variable1.Enabled = false;
                 Variable2.Enabled = true;
                 Variable3.Enabled = true;
+                Variable1.Visible = false;
+                Variable2.Visible = true;
+                Variable3.Visible = true;
                 OK.Enabled = true;
                 rec.Enabled = false;
                 recChange.Enabled = false;
@@ -400,10 +408,11 @@ namespace UsingForm
 
             if (comboBox.SelectedIndex == 2)
             {
-                groupBox.Text = "Треугольник";
+                groupBox.Text = @"Треугольник";
                 PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
                 label1.Text = @"Для нахождения площади треугольника введите длину и высоту";
+                label2.Text = @"A";
                 label3.Text = @"H";
                 Variable1.Clear();
                 Variable2.Clear();
@@ -411,6 +420,9 @@ namespace UsingForm
                 Variable1.Enabled = false;
                 Variable2.Enabled = true;
                 Variable3.Enabled = true;
+                Variable1.Visible = false;
+                Variable2.Visible = true;
+                Variable3.Visible = true;
                 OK.Enabled = true;
                 rec.Enabled = false;
                 recChange.Enabled = false;
@@ -451,6 +463,7 @@ namespace UsingForm
                     main.dataGridView1.CurrentRow.Cells[3].Value = Var2Name;
                 }
             }
+            Close();
         }
 
         private void AddForm_Load(object sender, EventArgs e)
@@ -460,28 +473,25 @@ namespace UsingForm
 
         private void groupBox_TextChanged(object sender, EventArgs e)
         {
-            if (groupBox.Text == "Круг")
+            if (groupBox.Text == @"Круг")
             {
                 Variable1.Visible = true;
-                label4.Visible = true;
                 Variable2.Visible = false;
                 Variable3.Visible = false;
-                label2.Visible = false;
+                label2.Visible = true;
                 label3.Visible = false;
             }
-            if (groupBox.Text == "Прямоугольник")
+            if (groupBox.Text == @"Прямоугольник")
             {
                 Variable1.Visible = false;
-                label4.Visible = false;
                 Variable2.Visible = true;
                 Variable3.Visible = true;
                 label2.Visible = true;
                 label3.Visible = true;
             }
-            if (groupBox.Text == "Треугольник")
+            if (groupBox.Text == @"Треугольник")
             {
                 Variable1.Visible = false;
-                label4.Visible = false;
                 Variable2.Visible = true;
                 Variable3.Visible = true;
                 label2.Visible = true;

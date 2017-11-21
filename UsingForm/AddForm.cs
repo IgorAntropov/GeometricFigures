@@ -462,6 +462,8 @@ namespace UsingForm
         {
             if (groupBox.Text == "Круг")
             {
+                Variable1.Visible = true;
+                label4.Visible = true;
                 Variable2.Visible = false;
                 Variable3.Visible = false;
                 label2.Visible = false;
@@ -471,11 +473,19 @@ namespace UsingForm
             {
                 Variable1.Visible = false;
                 label4.Visible = false;
+                Variable2.Visible = true;
+                Variable3.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
             }
             if (groupBox.Text == "Треугольник")
             {
                 Variable1.Visible = false;
                 label4.Visible = false;
+                Variable2.Visible = true;
+                Variable3.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
             }
         }
     }

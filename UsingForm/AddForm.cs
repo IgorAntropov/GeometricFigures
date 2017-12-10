@@ -468,7 +468,6 @@ namespace UsingForm
 
         private void AddForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void groupBox_TextChanged(object sender, EventArgs e)

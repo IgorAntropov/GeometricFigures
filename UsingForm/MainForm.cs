@@ -8,7 +8,6 @@ namespace UsingForm
     public partial class MainForm : Form
     {
         static string path;
-
         /// <summary>
         /// Поддержка конструктора
         /// </summary>
@@ -50,6 +49,7 @@ namespace UsingForm
         /// <param name="e"></param>
         public void button1_Click(object sender, EventArgs e)
         {
+            this.Size = new System.Drawing.Size(425, 323);
             AddForm fadd = new AddForm();
             fadd.Calculated += fadd_Calculated;
             fadd.rec.Visible = true;
@@ -57,7 +57,7 @@ namespace UsingForm
             fadd.Variable1.Clear();
             fadd.Variable2.Clear();
             fadd.Variable3.Clear();
-            fadd.groupBox.Text ="";
+            fadd.groupBox.Text = "";
             fadd.Variable1.Enabled = false;
             fadd.Variable2.Enabled = false;
             fadd.Variable3.Enabled = false;
@@ -103,6 +103,7 @@ namespace UsingForm
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
+            this.Size = new System.Drawing.Size(425, 323);
             SaveMenu.Enabled = false;
             SaveAsMenu.Enabled = false;
             Add.Enabled = false;
@@ -118,6 +119,7 @@ namespace UsingForm
         /// <param name="e"></param>
         public void OpenMenu_Click(object sender, EventArgs e)
         {
+            this.Size = new System.Drawing.Size(425, 323);
             Stream myStr = null;
             var OpenTags = new OpenFileDialog();
             OpenTags.Filter = @"All file (*.*) | *.*| Text file |*.txt";
@@ -134,22 +136,8 @@ namespace UsingForm
                     Search.Enabled = true;
                     Delete.Enabled = false;
 
-                    var myRead = new StreamReader(myStr, System.Text.Encoding.UTF8);
-                    string[] str;
-
-                    var num = 1;
-                    var str1 = myRead.ReadToEnd().Split('\n');
-                    num = str1.Count();
-                    dataGridView1.RowCount = num-1;
-                    for (var i = 0; i < num-1; i++)
-                    {
-                        str = str1[i].Split(':');
-                        for (var j = 0; j < dataGridView1.ColumnCount; j++)
-                        {
-                            dataGridView1.Rows[i].Cells[j].Value = str[j];
-                        }
-                    }
-                    myRead.Close();
+                    UseFile load = new UseFile();
+                    load.Load(dataGridView1, path);
                 }
             }
         }
@@ -161,7 +149,9 @@ namespace UsingForm
         /// <param name="e"></param>
         public void SaveMenu_Click(object sender, EventArgs e)
         {
-            Save();
+            this.Size = new System.Drawing.Size(425, 323);
+            UseFile save = new UseFile();
+            save.Save(dataGridView1,path);
         }
 
         /// <summary>
@@ -171,7 +161,9 @@ namespace UsingForm
         /// <param name="e"></param>
         public void SaveAsMenu_Click(object sender, EventArgs e)
         {
-            SaveAs();
+            this.Size = new System.Drawing.Size(425, 323);
+            UseFile saveAs = new UseFile();
+            saveAs.SaveAs(dataGridView1);
         }
 
         private void Edit_Click(object sender, EventArgs e)
@@ -185,14 +177,22 @@ namespace UsingForm
         /// <param name="e"></param>
         public void Delete_Click(object sender, EventArgs e)
         {
+            this.Size = new System.Drawing.Size(425, 323);
             foreach (DataGridViewRow itemDelet in dataGridView1.SelectedRows)
                 dataGridView1.Rows.RemoveAt(itemDelet.Index);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+            
         }
-
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            mainControl1.ShowValue(dataGridView1.CurrentRow.Cells[0].Value.ToString(),
+                dataGridView1.CurrentRow.Cells[1].Value.ToString(), dataGridView1.CurrentRow.Cells[2].Value.ToString(),
+                dataGridView1.CurrentRow.Cells[3].Value.ToString());
+        }
         /// <summary>
         /// Создать таблицу и вызов метода проверки
         /// </summary>
@@ -201,6 +201,7 @@ namespace UsingForm
         private void CreateMenu_Click(object sender, EventArgs e)
         {
             Check();
+            this.Size = new System.Drawing.Size(425, 323);
             Search.Enabled = false;
             Delete.Enabled = false;
         }
@@ -257,7 +258,8 @@ namespace UsingForm
 
                 if (result == DialogResult.OK)
                 {
-                    SaveAs();
+                    UseFile saveAs = new UseFile();
+                    saveAs.SaveAs(dataGridView1);
                     Add.Enabled = true;
                     SaveMenu.Enabled = false;
                     Change.Enabled = false;
@@ -341,22 +343,7 @@ namespace UsingForm
         /// </summary>
         public void Save()
         {
-            using (var myStream = new FileStream(path, FileMode.OpenOrCreate))
-            {
-                System.Text.Encoding.GetEncoding(1251);
-                StreamWriter myWriter = new StreamWriter(myStream);
-                for (var i = 0; i < dataGridView1.RowCount ; i++)
-                {
-                    for (var j = 0; j < dataGridView1.ColumnCount; j++)
-                    {
-                        myWriter.Write(dataGridView1.Rows[i].Cells[j].Value.ToString());
-                        if ((dataGridView1.ColumnCount - j) != 1) myWriter.Write(":");
-                    }
-
-                    if ((dataGridView1.RowCount ) != 0) myWriter.WriteLine();
-                }
-                myWriter.Close();
-            }
+            
         }
 
         /// <summary>
@@ -364,30 +351,7 @@ namespace UsingForm
         /// </summary>
         public void SaveAs()
         {
-            System.IO.Stream myStream;
-            var saveTags = new SaveFileDialog();
-            saveTags.Filter = @"All file (*.*) | *.*| Text file |*.txt";
-            saveTags.FilterIndex = 2;
-            if (saveTags.ShowDialog() == DialogResult.OK)
-            {
-                if ((myStream = saveTags.OpenFile()) != null)
-                {
-                    System.Text.Encoding.GetEncoding(1251);
-                    StreamWriter myWriter = new StreamWriter(myStream);
-                    for (int i = 0; i < dataGridView1.RowCount ; i++)
-                    {
-                        for (int j = 0; j < dataGridView1.ColumnCount; j++)
-                        {
-                            myWriter.Write(dataGridView1.Rows[i].Cells[j].Value.ToString());
-                            if ((dataGridView1.ColumnCount -j) != 1) myWriter.Write(":");
-                        }
-
-                        if ((dataGridView1.RowCount )  != 0) myWriter.WriteLine();
-                    }
-                    myWriter.Close();
-                }
-                myStream.Close();
-            }
+            
         }
 
         /// <summary>
@@ -431,6 +395,8 @@ namespace UsingForm
                 Delete.Enabled = true;
                 Change.Enabled = true;
                 Search.Enabled = true;
+                this.Size = new System.Drawing.Size(716, 323);
+
             }
         }
 
@@ -441,6 +407,7 @@ namespace UsingForm
         /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            this.Size = new System.Drawing.Size(425, 323);
             for (var i = 0; i < dataGridView1.RowCount; i++)
             {
                 dataGridView1.Rows[i].Selected = false;
@@ -475,6 +442,7 @@ namespace UsingForm
         /// <param name="e"></param>
         private void Change_Click(object sender, EventArgs e)
         {
+            this.Size = new System.Drawing.Size(425, 323);
             var formadd = new AddForm();
             formadd.Owner = this;
 
@@ -506,7 +474,7 @@ namespace UsingForm
                 formadd.comboBox.Enabled = false;
                 formadd.Variable2.Text = vr1;
                 formadd.Variable3.Text = vr2;
-                formadd.label1.Text = @"Площадь прямоугольника по введенным данным равна "+sq;
+                formadd.label1.Text = @"Площадь прямоугольника по введенным данным равна " + sq;
                 formadd.PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
             }
@@ -516,7 +484,7 @@ namespace UsingForm
                 formadd.comboBox.Enabled = false;
                 formadd.Variable2.Text = vr1;
                 formadd.Variable3.Text = vr2;
-                formadd.label1.Text = @"Площадь треугольника по введенным данным равна "+ sq;
+                formadd.label1.Text = @"Площадь треугольника по введенным данным равна " + sq;
                 formadd.label3.Text = @"H";
                 formadd.PictureBox.Load(
                     "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
@@ -527,5 +495,7 @@ namespace UsingForm
         private void button1_Click_1(object sender, EventArgs e)
         {
         }
+
+       
     }
 }

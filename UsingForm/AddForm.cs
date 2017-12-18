@@ -367,7 +367,7 @@ namespace UsingForm
             {
                 groupBox.Text = @"Круг";
                 PictureBox.Load(
-                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
+                    "C://Users//Igor'//Desktop//учеба//НТВП//NTVP//Model//kru.jpg");
                 label1.Text = @"Для нахождения площади круга введите радиус";
                 label2.Text = @"R";
                 Variable1.Clear();
@@ -388,7 +388,7 @@ namespace UsingForm
             {
                 groupBox.Text = @"Прямоугольник";
                 PictureBox.Load(
-                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
+                    "C://Users//Igor'//Desktop//учеба//НТВП//NTVP//Model//prya.jpg");
                 label1.Text = @"Для нахождения площади прямоугольника введите длины его смежных сторон";
                 label2.Text = @"A";
                 label3.Text = @"B";
@@ -410,7 +410,7 @@ namespace UsingForm
             {
                 groupBox.Text = @"Треугольник";
                 PictureBox.Load(
-                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
+                    "C://Users//Igor'//Desktop//учеба//НТВП//NTVP//Model//tre.jpg");
                 label1.Text = @"Для нахождения площади треугольника введите длину и высоту";
                 label2.Text = @"A";
                 label3.Text = @"H";

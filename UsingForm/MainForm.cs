@@ -466,7 +466,7 @@ namespace UsingForm
                 formadd.Variable1.Text = vr1;
                 formadd.label1.Text = @"Площадь круга по введенным данным равна " + sq;
                 formadd.PictureBox.Load(
-                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
+                    "C://Users//Igor'//Desktop//учеба//НТВП//NTVP//Model//kru.jpg");
             }
             if (fg == "прямоугольник")
             {
@@ -476,7 +476,7 @@ namespace UsingForm
                 formadd.Variable3.Text = vr2;
                 formadd.label1.Text = @"Площадь прямоугольника по введенным данным равна " + sq;
                 formadd.PictureBox.Load(
-                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
+                    "C://Users//Igor'//Desktop//учеба//НТВП//NTVP//Model//prya.jpg");
             }
             if (fg == "треугольник")
             {
@@ -487,7 +487,7 @@ namespace UsingForm
                 formadd.label1.Text = @"Площадь треугольника по введенным данным равна " + sq;
                 formadd.label3.Text = @"H";
                 formadd.PictureBox.Load(
-                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
+                    "C://Users//Igor'//Desktop//учеба//НТВП//NTVP//Model//tre.jpg");
             }
             formadd.ShowDialog();
         }

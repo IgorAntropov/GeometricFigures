@@ -43,7 +43,7 @@ namespace UsingForm
                 textVariable2.Visible = false;
                 textVariable1.Text = "R";
                 pictureBox.Load(
-                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//kru.jpg");
+                    "C://Users//Igor'//Desktop//учеба//НТВП//NTVP//Model//kru.jpg");
             }
             if (a == "прямоугольник")
             {
@@ -54,7 +54,7 @@ namespace UsingForm
                 textVariable1.Text = "A";
                 textVariable2.Text = "B";
                 pictureBox.Load(
-                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//prya.jpg");
+                    "C://Users//Igor'//Desktop//учеба//НТВП//NTVP//Model//prya.jpg");
             }
             if (a == "треугольник")
             {
@@ -65,8 +65,13 @@ namespace UsingForm
                 textVariable1.Text = "A";
                 textVariable2.Text = "H";
                 pictureBox.Load(
-                    "C://Users//Igor' Antropov//Documents//Visual Studio 2015//Projects//NTVP//Model//tre.jpg");
+                    "C://Users//Igor'//Desktop//учеба//НТВП//NTVP//Model//tre.jpg");
             }
+        }
+
+        private void variable1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

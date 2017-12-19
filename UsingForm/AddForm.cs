@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using System.IO;
 using Model;
 
 namespace UsingForm
@@ -101,8 +99,7 @@ namespace UsingForm
                 }
             }
         }
-
-
+        
         /// <summary>
         /// Фильтрация вводимых данных
         /// </summary>
@@ -464,10 +461,6 @@ namespace UsingForm
                 }
             }
             Close();
-        }
-
-        private void AddForm_Load(object sender, EventArgs e)
-        {
         }
 
         private void groupBox_TextChanged(object sender, EventArgs e)

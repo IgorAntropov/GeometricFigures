@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 using System.IO;
 
@@ -339,22 +338,6 @@ namespace UsingForm
         }
 
         /// <summary>
-        /// Пересохранение документа
-        /// </summary>
-        public void Save()
-        {
-            
-        }
-
-        /// <summary>
-        /// Сохранение документа
-        /// </summary>
-        public void SaveAs()
-        {
-            
-        }
-
-        /// <summary>
         /// Очистка таблицы
         /// </summary>
         private void DeleteColumn()
@@ -371,10 +354,6 @@ namespace UsingForm
             while (dataGridView1.Rows.Count > 1)
                 for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                     dataGridView1.Rows.Remove(dataGridView1.Rows[i]);
-        }
-
-        private void menuMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
         }
 
         /// <summary>
@@ -419,10 +398,6 @@ namespace UsingForm
                             break;
                         }
             }
-        }
-
-        private void FailMenu_Click(object sender, EventArgs e)
-        {
         }
 
         /// <summary>
@@ -491,11 +466,5 @@ namespace UsingForm
             }
             formadd.ShowDialog();
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-        }
-
-       
     }
 }

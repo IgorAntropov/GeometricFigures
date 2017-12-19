@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace UsingForm
 {
@@ -15,16 +7,6 @@ namespace UsingForm
         public MainControl()
         {
             InitializeComponent();
-        }
-
-        private void MainControl_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
         public void ShowValue(string a,string b, string c, string d)
@@ -67,11 +49,6 @@ namespace UsingForm
                 pictureBox.Load(
                     "C://Users//Igor'//Desktop//учеба//НТВП//NTVP//Model//tre.jpg");
             }
-        }
-
-        private void variable1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

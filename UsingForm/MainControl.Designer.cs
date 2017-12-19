@@ -41,16 +41,15 @@
             // variable1
             // 
             this.variable1.Location = new System.Drawing.Point(16, 178);
-            this.variable1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.variable1.Margin = new System.Windows.Forms.Padding(4);
             this.variable1.Name = "variable1";
             this.variable1.Size = new System.Drawing.Size(64, 22);
             this.variable1.TabIndex = 0;
-            this.variable1.TextChanged += new System.EventHandler(this.variable1_TextChanged);
             // 
             // variable2
             // 
             this.variable2.Location = new System.Drawing.Point(16, 210);
-            this.variable2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.variable2.Margin = new System.Windows.Forms.Padding(4);
             this.variable2.Name = "variable2";
             this.variable2.Size = new System.Drawing.Size(64, 22);
             this.variable2.TabIndex = 1;
@@ -88,12 +87,11 @@
             // pictureBox
             // 
             this.pictureBox.Location = new System.Drawing.Point(155, 126);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(229, 176);
             this.pictureBox.TabIndex = 5;
             this.pictureBox.TabStop = false;
-            this.pictureBox.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // changeFigure
             // 
@@ -103,7 +101,7 @@
             "Прямоугольник",
             "Треугольник"});
             this.changeFigure.Location = new System.Drawing.Point(81, 28);
-            this.changeFigure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.changeFigure.Margin = new System.Windows.Forms.Padding(4);
             this.changeFigure.Name = "changeFigure";
             this.changeFigure.Size = new System.Drawing.Size(212, 24);
             this.changeFigure.TabIndex = 6;
@@ -119,10 +117,10 @@
             this.Controls.Add(this.textVariable1);
             this.Controls.Add(this.variable2);
             this.Controls.Add(this.variable1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainControl";
             this.Size = new System.Drawing.Size(388, 305);
-            this.Load += new System.EventHandler(this.MainControl_Load);
+            //this.Load += new System.EventHandler(this.MainControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -57,7 +57,7 @@
             this.menuMain.Size = new System.Drawing.Size(700, 24);
             this.menuMain.TabIndex = 0;
             this.menuMain.Text = "MenuMain";
-            this.menuMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuMain_ItemClicked);
+            //this.menuMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuMain_ItemClicked);
             // 
             // FailMenu
             // 
@@ -70,7 +70,7 @@
             this.FailMenu.Name = "FailMenu";
             this.FailMenu.Size = new System.Drawing.Size(48, 20);
             this.FailMenu.Text = "Файл";
-            this.FailMenu.Click += new System.EventHandler(this.FailMenu_Click);
+            //this.FailMenu.Click += new System.EventHandler(this.FailMenu_Click);
             // 
             // CreateMenu
             // 
